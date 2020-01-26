@@ -1,0 +1,74 @@
+BoxLayout:
+    orientation: 'horizontal'
+    BoxLayout:
+        orientation:'vertical'
+        size_hint_x: None
+        width:250
+        Label:
+            text: "Sort By:"
+        Spinner:
+            id:spinners
+            text: app.current_sort
+            values: app.sort_options
+            on_text: app.sorted(self.text)
+        Widget:
+            id:separator
+            size_hint_y: None
+            height: 6
+            canvas:
+                Rectangle:
+                    pos:0, separator.center_y
+                    size: separator.width, 5
+        Label:
+            text: "Add New Place..."
+        Label:
+            text:"Name : "
+        TextInput:
+            id:city_name
+            hint_text: 'City Name'
+            write_tab: False
+            multiline: False
+        Label:
+            text:"Country : "
+        TextInput:
+            id:country_name
+            hint_text: 'Place Name'
+            write_tab: False
+            multiline: False
+        Label:
+            text:"Priority : "
+        TextInput:
+            id:priority_num
+            hint_text: 'Priority Number'
+            write_tab: False
+            multiline: False
+        Widget:
+            id:separator
+            size_hint_y: None
+            height: 6
+            canvas:
+                Rectangle:
+                    pos:0, separator.center_y
+                    size: separator.width, 5
+        Button:
+            id:show_place
+            text:"Add Place"
+            on_press: app.add()
+        Button:
+            text:"Clear"
+            on_press: app.clear_text()
+    BoxLayout:
+        orientation: 'vertical'
+        Label:
+            id:visit
+            text: ""
+            size_hint_y: None
+            height: 50
+        BoxLayout:
+            orientation: 'vertical'
+            id: entries_box
+        Label:
+            id:status
+            text:""
+            size_hint_y: None
+            height:50
